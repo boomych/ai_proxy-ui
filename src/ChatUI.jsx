@@ -8,9 +8,10 @@ export default function ChatUI() {
   const [text, setText] = useState("")
   const [limit, setLimit] = useState(50)
   const scrollRef = useRef(null)
+  const API_BASE = "https://ai-proxy-service-dvu7.onrender.com:8000";
 
   const authenticate = async () => {
-    const res = await fetch(`/auth/${username}`, {
+    const res = await fetch(`${API_BASE}/auth/${username}`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ codeword })
@@ -24,7 +25,7 @@ export default function ChatUI() {
   }
 
   const loadMessages = async () => {
-    const res = await fetch(`/messages?from_id=0&limit=${limit}`, {
+    const res = await fetch(`${API_BASE}/messages?from_id=0&limit=${limit}`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     const data = await res.json()
@@ -50,7 +51,7 @@ export default function ChatUI() {
     const trimmed = text.trim()
     if (!trimmed) return
 
-    await fetch(`/participants`, {
+    await fetch(`${API_BASE}/participants`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
