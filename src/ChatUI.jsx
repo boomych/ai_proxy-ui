@@ -8,7 +8,7 @@ export default function ChatUI() {
   const [text, setText] = useState("")
   const [limit, setLimit] = useState(50)
   const scrollRef = useRef(null)
-  const API_BASE = "https://ai-proxy-service-dvu7.onrender.com:8000";
+  const API_BASE = "https://ai-proxy-service-dvu7.onrender.com";
 
   const authenticate = async () => {
     const res = await fetch(`${API_BASE}/auth/${username}`, {
