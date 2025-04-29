@@ -6,7 +6,7 @@ export default function ChatUI() {
   const [token, setToken] = useState("")
   const [messages, setMessages] = useState([])
   const [text, setText] = useState("")
-  const [limit, setLimit] = useState(50)
+  const [limit, setLimit] = useState(15)
   const scrollRef = useRef(null)
   const API_BASE = "https://ai-proxy-service-dvu7.onrender.com";
 
