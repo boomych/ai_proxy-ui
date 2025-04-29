@@ -25,7 +25,7 @@ export default function ChatUI() {
   }
 
   const loadMessages = async () => {
-    const res = await fetch(`${API_BASE}/messages?from_id=0&limit=${limit}`, {
+    const res = await fetch(`${API_BASE}/messages?limit=${limit}`, {
       headers: { 'Authorization': `Bearer ${token}` }
     })
     const data = await res.json()
